@@ -1,0 +1,24 @@
+[alias]
+    br = branch
+    co = checkout
+    ci = commit
+    d  = difftool 
+    gr = log --date=short --graph --pretty=format:'%C(yellow)%h%Creset %ad %C(bold green)%an%Creset %s%C(yellow)%d%Creset'
+    st = status
+[color]
+    ui = true
+[difftool]
+    prompt = false
+[user]
+    name = Wonder Chang
+      email = iwonder.tw@gmail.com
+[core]
+    editor = vim
+[merge]
+    tool = vimdiff
+[url "https://"]
+	insteadOf = git://
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
