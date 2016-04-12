@@ -1,34 +1,54 @@
-
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export PS1="\[\e[1;32;40m\]\u@\h\[\e[1;32;40m\]\[\e[1;37;40m\]:\[\e[1;33;40m\]\w\[\033[1;36m\]\$(parse_git_branch)\[\e\$\[\e[1;37;40m\]\\$ \[\e[0m\]"
+
+# Bash command
 alias ls='ls -G'
-alias td='open -a TextEdit'
-alias py3='python3'
-alias py='python'
-alias R='Rscript'
-alias rm='rm -i'
-alias rmr='rm -ri'
-alias _rm='rm -rf'
-alias npms='npm start'
-alias nckuopen='ssh -i mac.pem ubuntu@52.68.0.83'
-alias lijopie='ssh -i mac.pem ubuntu@52.68.53.154'
-alias sftpnckuopen='sftp -i mac.pem ubuntu@52.68.0.83'
 alias scr='screen -D -R'
-cd() { builtin cd "$@"; ls; }
-alias hstart="/usr/local/Cellar/hadoop/2.6.0/sbin/start-dfs.sh;/usr/local/Cellar/hadoop/2.6.0/sbin/start-yarn.sh"
-alias hstop="/usr/local/Cellar/hadoop/2.6.0/sbin/stop-yarn.sh;/usr/local/Cellar/hadoop/2.6.0/sbin/stop-dfs.sh"
+alias du='du -h --max-depth=1'
+alias mv='mv -i'
+alias rm='_rm'
+alias rrm='/bin/rm -i'
+alias cd='_cd'
 
+# Run program
+alias td='open -a TextEdit'
+alias py='python'
+alias py3='python3'
+alias R='Rscript'
+alias npms='npm start'
 
-export PS1="\[\e[1;32;40m\]\u@\h\[\e[1;32;40m\](\d \t)\[\e[1;37;40m\]:\[\e[1;33;40m\]\w\[\e\$\[\e[1;37;40m\]\\$ \[\e[0m\]"
-export PATH=$PATH:/usr/local/git/bin:/usr/local/bin
-
+# Custimzed function
+function _cd {
+  builtin cd "$@"; ls;
+}
+function _rm {
+  while [ $# -ge 1 ]; do
+    mv -f "$1" $HOME/tmp
+    echo "$1 deleted."
+    shift
+  done
+}
 function parse_git_branch { 
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+  last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
+  now=`date +%s`;
+  sec=$((now-last_commit));
+  min=$((sec/60)); hr=$((min/60)); day=$((hr/24)); yr=$((day/365));
+  if [ $min -lt 60 ]; then
+    info="${min}m"
+  elif [ $hr -lt 24 ]; then
+    info="${hr}h$((min%60))m"
+  elif [ $day -lt 365 ]; then
+    info="${day}d$((hr%24))h"
+  else
+    info="${yr}y$((day%365))d"
+  fi
+  echo "(${ref#refs/heads/} $info)";
 } 
 
-#export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig:/opt/local/lib/pkgconfig
-#export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin
+
