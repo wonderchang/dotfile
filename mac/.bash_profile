@@ -3,22 +3,35 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PS1="\[\e[1;32;40m\]\u@\h\[\e[1;32;40m\]\[\e[1;37;40m\]:\[\e[1;33;40m\]\w\[\033[1;36m\]\$(parse_git_branch)\[\e\$\[\e[1;37;40m\]\\$ \[\e[0m\]"
+export HISTSIZE=1000
+export HISFILESIZE=5000
 
 # Bash command
-alias ls='ls -G'
-alias scr='screen -D -R'
+alias cd='_cd'
+alias cdb='cd ../'
+alias cdb2='cd ../../'
+alias cdb3='cd ../../../'
+alias cdb4='cd ../../../../'
+alias cdb5='cd ../../../../../'
+alias cdb6='cd ../../../../../../'
 alias du='du -h --max-depth=1'
+alias find='find . -name'
+alias grep='grep --color=auto'
+alias h='history | grep'
+alias ls='ls -G'
+alias mkdir='mkdir -pv'
 alias mv='mv -i'
+alias path='echo -e ${PATH//:/\\n}'
 alias rm='_rm'
 alias rrm='/bin/rm -i'
-alias cd='_cd'
+alias scr='screen -D -R'
 
 # Run program
-alias td='open -a TextEdit'
+alias npms='npm start'
 alias py='python'
 alias py3='python3'
 alias R='Rscript'
-alias npms='npm start'
+alias td='open -a TextEdit'
 
 # Custimzed function
 function _cd {
