@@ -74,11 +74,17 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8 
 set encoding=utf-8
 
-execute pathogen#infect()
-call pathogen#infect()
+"execute pathogen#infect()
+"call pathogen#infect()
 syntax on
 filetype plugin indent on
 set t_Co=16
 hi Comment ctermfg=blue
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'https://github.com/elzr/vim-json.git'
+call plug#end()
 
 " vi:sw=4:ts=4
