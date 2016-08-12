@@ -20,9 +20,8 @@ Shell | bash | oh-my-zsh
 Install oh-my-zsh
 
 	$ pip install powerline-status
-	$ brew install zsh
 	$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-	$ cp .zshrc ~/
+  $ ./load.sh
 	
 Load the iTerm2 setting profile
 
