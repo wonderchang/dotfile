@@ -1,4 +1,4 @@
-update_all {
+update_all() {
   files=($@)
   for fn in "${files[@]}"; do
     if [ -f $HOME/$fn ]; then

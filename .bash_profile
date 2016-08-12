@@ -59,6 +59,7 @@ function parse_git_branch {
   echo "(${ref#refs/heads/} $info)";
 } 
 
+export ANDROID_HOME=/Users/wonder/Library/Android/sdk
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig:/opt/local/lib/pkgconfig
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin
-
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin:/Library
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
