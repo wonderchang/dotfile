@@ -6,7 +6,7 @@ Configuration for my working staging. I am used to working on Mac, and sometimes
 	<thead>
 		<tr>
 			<th>Platform</td>
-			<th>Linux (Ubuntu)</td>
+			<th>Linux</td>
 			<th>Mac OSX</td>
 		</tr>
 	</thead>
