@@ -1,2 +1,2 @@
-/bin/cp -f ~/.zshrc .
-echo "Update .zshrc from $Home/.zshrc"
+/bin/cp -f $HOME/.zshrc .
+echo "Updated .zshrc from $HOME/.zshrc"
