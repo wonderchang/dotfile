@@ -6,8 +6,7 @@ export PS1="\[\e[1;32;40m\]\u@\h\[\e[1;32;40m\]\[\e[1;37;40m\]:\[\e[1;33;40m\]\w
 export HISTSIZE=1000
 export HISFILESIZE=5000
 
-# Bash command
-alias cd='_cd'
+# Common use command
 alias cdb='cd ../'
 alias cdb2='cd ../../'
 alias cdb3='cd ../../../'
@@ -28,18 +27,16 @@ alias scr='screen -D -R'
 
 # Run program
 alias npms='npm start'
+alias npmb='npm run build'
 alias py='python'
 alias py3='python3'
 alias R='Rscript'
 alias td='open -a TextEdit'
 
 # Custimzed function
-function _cd {
-  builtin cd "$@"; ls;
-}
 function _rm {
   while [ $# -ge 1 ]; do
-    mv -f "$1" $HOME/tmp
+    mv -f "$1" $HOME/.Trash
     echo "$1 deleted."
     shift
   done
