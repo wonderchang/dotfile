@@ -10,13 +10,14 @@ update_all() {
   done
 }
 
-dotfiles=('.zshrc' '.vimrc' '.tmux.conf' '.tmux.conf.local' '.gitconfig')
+dotfiles=('.vimrc' '.tmux.conf' '.tmux.conf.local' '.gitconfig')
 OS=`uname -s`
 
 if [ "$OS" = "Darwin" ]; then
-  dotfiles+=(.bash_profile)
+  dotfiles+=('.zshrc')
+  dotfiles+=('.bash_profile')
   update_all "${dotfiles[@]}"
 elif [ "$OS" = "Linux" ]; then
-  dotfiles+=(.bashrc)
+  dotfiles+=('.bashrc')
   update_all "${dotfiles[@]}"
 fi

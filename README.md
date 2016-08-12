@@ -17,11 +17,29 @@ Shell | bash | oh-my-zsh
 
 ## Mac
 
-Install oh-my-zsh
+Install [Homebrew](http://brew.sh/)
+
+	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Install python & pip
+
+	$ brew install python
+
+Install tmux
+
+	$ brew install tmux
+
+Install [powerline](https://powerline.readthedocs.io/en/latest/) schema
 
 	$ pip install powerline-status
+
+Install oh-my-zsh
+
 	$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  $ ./load.sh
+	
+Load configuration (oh-my-zsh, tmux, vim, git)
+
+	$ ./load.sh
 	
 Load the iTerm2 setting profile
 
