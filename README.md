@@ -10,7 +10,7 @@ Configuration for my working staging. I am used to working on Mac, and sometimes
 			<th>Mac OSX</td>
 		</tr>
 	</thead>
-	<tbody style='text-align:center'>
+	<tbody>
 		<tr>
 			<td>Emulator</td>
 			<td>Built-in</td>
@@ -23,15 +23,15 @@ Configuration for my working staging. I am used to working on Mac, and sometimes
 		</tr>
 		<tr>
 			<td>Multiplexer</td>
-			<td colspan='2'>tmux</td>
+			<td colspan='2' style='text-align:center'>tmux</td>
 		</tr>
 		<tr>
 			<td>Editor</td>
-			<td colspan='2'>vim</td>
+			<td colspan='2' style='text-align:center'>vim</td>
 		</tr>
 		<tr>
 			<td>VCS</td>
-			<td colspan='2'>git</td>
+			<td colspan='2' style='text-align:center'>git</td>
 		</tr>
 	</tbody>
 </table>
