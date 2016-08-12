@@ -2,45 +2,18 @@
 
 Configuration for my working staging. I am used to working on Mac, and sometimes, if neccessary, employing Linux when deploying. Even if both are Unix-like system, they are still different each other. In order to reserve native Linux environment and be compatible in general Linux machine as possible as avoiding troubleshooting. I've separated the Linux configuration from Mac. The table below is my 
 
-<table>
-	<thead>
-		<tr>
-			<th>Platform</td>
-			<th>Linux</td>
-			<th>Mac OSX</td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Emulator</td>
-			<td>Built-in</td>
-			<td>iTerm2</td>
-		</tr>
-		<tr>
-			<td>Shell</td>
-			<td>bash</td>
-			<td>oh-my-zsh</td>
-		</tr>
-		<tr>
-			<td>Multiplexer</td>
-			<td colspan='2' style='text-align:center'>tmux</td>
-		</tr>
-		<tr>
-			<td>Editor</td>
-			<td colspan='2' style='text-align:center'>vim</td>
-		</tr>
-		<tr>
-			<td>VCS</td>
-			<td colspan='2' style='text-align:center'>git</td>
-		</tr>
-	</tbody>
-</table>
+**Different part**
 
-## Linux
+Plaform | Linux | Mac OSX
+------------ | ------------ | -------------
+Emulator | Built-in | iTerm2
+Shell | bash | oh-my-zsh
 
-Only applying the .bashrc
+**Common part**
 
-	$ cp .bashrc ~/
+* Multiplexer: tmux
+* Editor: vim
+* VCS: git
 
 ## Mac
 
