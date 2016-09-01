@@ -21,7 +21,8 @@ Install [powerline](https://powerline.readthedocs.io/en/latest/) schema
 	
 Install powerline fonts
 
-	$ git clone git@github.com:powerline/fonts.git	$ cd powerline && ./install.sh
+	$ git clone git@github.com:powerline/fonts.git
+  $ cd fonts && ./install.sh
 
 Install oh-my-zsh
 
@@ -41,7 +42,7 @@ Load the iTerm2 setting profile
 
 Install [tmux](https://tmux.github.io/) from source code
 
-	$ sudo apt-get install ibevent-dev libncurses-dev
+	$ sudo apt-get install libevent-dev libncurses5-dev
 	$ wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
 	$ tar zxvf tmux-2.2.tar.gz
 	$ cd tmux-2.2 && ./configure
