@@ -1,6 +1,19 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/wonder/.oh-my-zsh
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig:/opt/local/lib/pkgconfig
+export LIBRARY=$HOME/Library
+export ANDROID_HOME=$LIBRARY/Android/sdk
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin:/Library
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
+
+export TRASH=$HOME/.Trash
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -83,13 +96,32 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+# Common use command
+alias find='find . -name'
+alias grep='grep --color=auto'
+alias h='history | grep'
+alias mkdir='mkdir -pv'
+alias mv='mv -i'
+alias path='echo -e ${PATH//:/\\n}'
+alias rm='_rm'
+alias rrm='/bin/rm -i'
 
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig:/opt/local/lib/pkgconfig
-export LIBRARY=$HOME/Library
-export ANDROID_HOME=$LIBRARY/Android/sdk
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin:/Library
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
+# Run program
+alias npms='npm start'
+alias npmb='npm run build'
+alias py='python'
+alias py3='python3'
+alias R='Rscript'
+alias td='open -a TextEdit'
+
+# Custimzed function
+function _rm {
+  while [ $# -ge 1 ]; do
+    if [ -d "$TRASH/$1" ]; then
+      /bin/rm -rf $TRASH/$1
+    fi
+    mv -f "$1" $TRASH
+    echo "$1 deleted."
+    shift
+  done
+}
