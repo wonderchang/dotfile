@@ -1,9 +1,12 @@
 # env-config
 
-Configuration for my working staging. I am used to working on Mac, and sometimes, if neccessary, employing Linux when deploying. Even if both are Unix-like system, they are still different each other. In order to reserve native Linux environment and be compatible in general Linux machine as possible as avoiding troubleshooting. I've separated the Linux configuration from Mac. 
+Configuration for my working staging. I am used to working on Mac, and sometimes, if neccessary, employing Linux when deploying. Even if both are Unix-like system, they are still different each other. In order to reserve native Linux environment and be compatible in general Linux machine as possible as avoiding troubleshooting. I've separated the Linux configuration from Mac, including
 
 * Emulator: Built-in (Linux), iTerm2 (MacOSX)
 * Shell: bash (Linux), oh-my-zsh (MacOSX)
+
+but the same part:
+
 * Multiplexer: tmux
 * Editor: vim
 * VCS: git
@@ -12,25 +15,25 @@ Configuration for my working staging. I am used to working on Mac, and sometimes
 
 Install tmux
 
-	$ brew install tmux
+    $ brew install tmux
 
 Install [powerline](https://powerline.readthedocs.io/en/latest/) schema
 
-	$ pip install powerline-status
-	$ brew install macvim --env-std --with-override-system-vim
+    $ pip install powerline-status
+    $ brew install macvim --env-std --with-override-system-vim
 	
 Install powerline fonts
 
-	$ git clone git@github.com:powerline/fonts.git
-  $ cd fonts && ./install.sh
+    $ git clone git@github.com:powerline/fonts.git
+    $ cd fonts && ./install.sh
 
 Install oh-my-zsh
 
-	$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	
 Load configuration (oh-my-zsh, tmux, vim, git)
 
-	$ ./load.sh
+    $ ./load.sh
 	
 Load the iTerm2 setting profile
 
@@ -42,30 +45,33 @@ Load the iTerm2 setting profile
 
 Install [tmux](https://tmux.github.io/) from source code
 
-	$ sudo apt-get install libevent-dev libncurses5-dev
-	$ wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
-	$ tar zxvf tmux-2.2.tar.gz
-	$ cd tmux-2.2 && ./configure
-	$ make && sudo make install
+    $ sudo apt-get install libevent-dev libncurses5-dev
+    $ wget https://github.com/tmux/tmux/releases/download/2.2/tmux-2.2.tar.gz
+    $ tar zxvf tmux-2.2.tar.gz
+    $ cd tmux-2.2 && ./configure
+    $ make && sudo make install
 	
 Install [powerline](https://powerline.readthedocs.io/en/latest/) schema
 
-	$ sudo pip install powerline-status
+	  $ sudo pip install powerline-status
 	
 Load configuration (.bashrc, tmux, vim, git)
 
-	$ ./load.sh
+	  $ ./load.sh
 
 ## Vim
 
 Install [vim-plug](https://github.com/junegunn/vim-plug), a vim plugin manager
 
-	$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     $ vi
     
 Type `:PluginInstall` to install all the registered plugins
 
-## tmux
+## Update repo from the current local
 
-reference to [https://github.com/gpakosz/.tmux](https://github.com/gpakosz/.tmux)
+    $ ./update.sh
+
+## Reference
+
+* [https://github.com/gpakosz/.tmux](https://github.com/gpakosz/.tmux)
