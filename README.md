@@ -68,9 +68,11 @@ Install [vim-plug](https://github.com/junegunn/vim-plug), a vim plugin manager
     
 Type `:PluginInstall` to install all the registered plugins
 
-## Update repo from the current local
+## Update repo from the local configuration
 
     $ ./update.sh
+
+The updated target files contains `.vimrc`, `.tmux.conf`, `.tmux.conf.local` and `.gitconfig`.
 
 ## Reference
 
