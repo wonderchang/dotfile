@@ -63,6 +63,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/jmcantrell/vim-virtualenv.git'
 Plug 'gkz/vim-ls'
+Plug 'digitaltoad/vim-pug'
+Plug 'wavded/vim-stylus'
 call plug#end()
 
 " vi:sw=2:ts=2
