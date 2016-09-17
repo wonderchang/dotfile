@@ -266,13 +266,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>624 79 590 252 0 0 1280 777 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>637 206 606 456 0 0 1280 777 </string>
+	<string>637 361 599 388 0 0 1280 777 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>613 212 599 502 0 0 1280 777 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>80 193 592 584 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>30 114 874 639 0 0 1280 777 </string>
+	<string>111 216 650 477 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -924,16 +924,49 @@
 	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
 	<string>C4457AA7-3EF1-407B-8E9D-5F2452904459</string>
+	<key>NoSyncLastTipTime</key>
+	<real>495653216.028521</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<true/>
 	<key>NoSyncReplaceProfileWarning</key>
 	<true/>
 	<key>NoSyncReplaceProfileWarning_selection</key>
 	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>492625338.25305802</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+	</array>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -985,5 +1018,9 @@
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
 	<string>3.0.4</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
