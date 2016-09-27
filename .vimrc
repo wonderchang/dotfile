@@ -65,6 +65,7 @@ Plug 'https://github.com/jmcantrell/vim-virtualenv.git'
 Plug 'gkz/vim-ls'
 Plug 'digitaltoad/vim-pug'
 Plug 'wavded/vim-stylus'
+Plug 'isRuslan/vim-es6'
 call plug#end()
 
 " vi:sw=2:ts=2
