@@ -66,6 +66,7 @@ Plug 'gkz/vim-ls'
 Plug 'digitaltoad/vim-pug'
 Plug 'wavded/vim-stylus'
 Plug 'isRuslan/vim-es6'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " vi:sw=2:ts=2
