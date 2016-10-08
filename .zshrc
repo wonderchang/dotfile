@@ -11,7 +11,6 @@ export LIBRARY=$HOME/Library
 export ANDROID_HOME=$LIBRARY/Android/sdk
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/local/mysql/bin:/Library
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 export TRASH=$HOME/.Trash
 
