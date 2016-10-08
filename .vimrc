@@ -27,7 +27,10 @@ set t_Co=256
 " Others
 set nocompatible             " Use Vim default instead of Vi
 set viminfo='20,\"50
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
+" set clipboard=unnamed
 set nohlsearch
 set foldmethod=marker
 set foldlevel=1
