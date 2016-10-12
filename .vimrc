@@ -56,7 +56,7 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 hi Comment ctermfg=blue
 
 " Customized the tab setting of the specific filetype
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=80
 
 " Vim plugin registry managed by vim-plug
 call plug#begin()
