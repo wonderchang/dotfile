@@ -15,5 +15,6 @@ if [ "$OS" = "Darwin" ]; then
   load_all "${dotfiles[@]}"
 elif [ "$OS" = "Linux" ]; then
   dotfiles+=('.bashrc')
+  dotfiles+=('.profile')
   load_all "${dotfiles[@]}"
 fi
