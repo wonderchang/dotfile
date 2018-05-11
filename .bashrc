@@ -71,32 +71,17 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 
-#### Handle dirty's Requirements
-
-export EDITOR=vi
-export GDFONTPATH="$HOME/share/fonts"
-export LANG=zh_TW.UTF-8
-export PATH="$PATH:$HOME/bin:$HOME/.aspera/connect/bin"
-
 # Standard Aliases
 
-alias cls='clear'
 alias cp='cp -i'
 alias du='du -h --max-depth=1'
-alias h='history | grep'
 alias mv='mv -i'
 alias rm='_rm'
 alias rrm='/bin/rm -i'	# real rm
 alias scr='screen -D -R'
 alias vi='vim'
-alias install='sudo apt-get install'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'
-alias distupgrade='sudo apt-get dist-upgrade'
 alias npms='npm start'
 alias less='less -R'
-alias cdh='cd /home'
-cd() { builtin cd "$@"; ls; }
 
 # Personal Aliases
 
@@ -128,14 +113,7 @@ echo "(${ref#refs/heads/} $info)";
 }
 
 function _ls() {
-#LANG=zh_TW.BIG5
-/bin/ls -C --color=always $@ | /usr/bin/iconv 
-#LANG=zh_TW.UTF-8
-}
-
-function old() {
-day=$1; shift
-find . -maxdepth 1 -mtime +${day} $@
+/bin/ls -C --color=always $@
 }
 
 function _rm() { 
@@ -146,8 +124,5 @@ while [ $# -ge 1 ]; do
 done
 }
 
-function rmold() {
-find . -maxdepth 1 -mtime +$1 -exec rm -rf {} \;
-}
 
 # vi:nowrap:sw=4:ts=4
