@@ -1,15 +1,20 @@
-# env-config
+# dotfile
 
-Configuration for my working staging. I am used to working on Mac, and sometimes, if neccessary, employing Linux when deploying. Even if both are Unix-like system, they are still different each other. In order to reserve native Linux environment and be compatible in general Linux machine as possible as avoiding troubleshooting. I've separated the Linux configuration from Mac, including
+My familiar and productive workspace configuration:
 
-* Emulator: Built-in (Linux), iTerm2 (MacOSX)
-* Shell: bash (Linux), oh-my-zsh (MacOSX)
-
-but the same part:
-
+* Shell: bash
 * Multiplexer: tmux
 * Editor: vim
 * VCS: git
+
+One-command build
+
+    $ make
+
+One-command clean
+
+    $ make clean
+
 
 ## Mac
 

@@ -4,3 +4,6 @@ if [ -n "$BASH_VERSION" ]; then
     . "$HOME/.bashrc"
   fi
 fi
+
+
+# vi:et:ts=2:sw=2:cc=80

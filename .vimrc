@@ -1,11 +1,13 @@
 " Tab and indent
+set modelines=5
 set expandtab
 set smarttab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set backspace=2
 set autoindent
 set nowrap
+set list listchars=tab:▸·,trail:⎵
 
 " Command mode command completion
 set wildmenu                 " Enhanced command line completion.

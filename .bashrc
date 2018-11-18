@@ -20,29 +20,6 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
   debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-  xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-  *)
-    #	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='\[\033[1;32m\]\u@\h\[\033[00m\]:\[\033[1;33m\]\w\[\033[1;36m\]$(git_info)\[\033[00m\]\$ '
-    ;;
-esac
-
-# Comment in the above and uncomment this below for a color prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-  xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-  *)
-    ;;
-esac
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -52,17 +29,6 @@ esac
 #    . ~/.bash_aliases
 #fi
 
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-  eval "`dircolors -b`"
-  alias ls='_ls'
-fi
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -71,58 +37,31 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 
-# Standard Aliases
-
-alias cp='cp -i'
+# Common use command
 alias du='du -h --max-depth=1'
+alias find='find . -name'
+alias grep='grep --color=auto'
+alias h='history | grep'
+alias ls='ls -C --color=always $@'
+alias mkdir='mkdir -pv'
 alias mv='mv -i'
+alias path='echo -e ${PATH//:/\\n}'
 alias rm='_rm'
-alias rrm='/bin/rm -i'	# real rm
-alias scr='screen -D -R'
-alias vi='vim'
-alias npms='npm start'
+alias rrm='/bin/rm -i'
 alias less='less -R'
 
-# Personal Aliases
-
-if [ -e $HOME/.alias ]; then
-  . $HOME/.alias
-fi
-
-# Local Functions and Commands
-
-function git_info {
-ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
-
-now=`date +%s`;
-sec=$((now-last_commit));
-min=$((sec/60)); hr=$((min/60)); day=$((hr/24)); yr=$((day/365));
-if [ $min -lt 60 ]; then
-  info="${min}m"
-elif [ $hr -lt 24 ]; then
-  info="${hr}h$((min%60))m"
-elif [ $day -lt 365 ]; then
-  info="${day}d$((hr%24))h"
-else
-  info="${yr}y$((day%365))d"
-fi
-
-echo "(${ref#refs/heads/} $info)";
-#	echo "(${ref#refs/heads/})";
+function _rm() {
+  while [ $# -ge 1 ]; do
+    mv -f "$1" $HOME/tmp
+    echo "$1 deleted."
+    shift
+  done
 }
 
-function _ls() {
-/bin/ls -C --color=always $@
-}
-
-function _rm() { 
-while [ $# -ge 1 ]; do
-  mv -f "$1" $HOME/tmp
-  echo "$1 deleted."
-  shift
-done
-}
+# Set bash with Git prompt
+# https://github.com/magicmonty/bash-git-prompt
+GIT_PROMPT_THEME=WonderChang
+source ~/.bash-git-prompt/gitprompt.sh
 
 
-# vi:nowrap:sw=4:ts=4
+# vi:nowrap:sw=2:ts=2
