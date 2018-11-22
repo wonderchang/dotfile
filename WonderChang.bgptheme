@@ -8,7 +8,7 @@ override_git_prompt_colors() {
   GIT_PROMPT_STASHED="${BoldBlue}⚑"
   GIT_PROMPT_CLEAN="${BoldGreen}✔"
 
-  GIT_PROMPT_START_USER="_LAST_COMMAND_INDICATOR_ ${Blue}\\u${White}@${BoldBlue}\\h ${BoldYellow}${PathShort}${ResetColor}"
+  GIT_PROMPT_START_USER="_LAST_COMMAND_INDICATOR_ ${Green}\\u${White}@${BoldGreen}\\h ${BoldYellow}${PathShort}${ResetColor}"
   GIT_PROMPT_END_USER="\n${White}\t${ResetColor} $ "
   GIT_PROMPT_END_ROOT="${BoldRed} # "
 }
