@@ -17,7 +17,7 @@ function _rm {
 }
 
 # Common use command
-alias du='du -h --max-depth=1'
+alias du='du -h'
 alias find='find . -name'
 alias grep='grep --color=auto'
 alias h='history | grep'
