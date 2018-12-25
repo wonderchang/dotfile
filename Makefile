@@ -13,7 +13,7 @@ os=$(shell uname -s)
 define disable_dotfile
 	if [ -f $(1) ] && [ ! -h $(1) ]; \
 		then mv -v $(1) $(1).bak; \
-		else rm -fv $(1); fi
+		else /bin/rm -fv $(1); fi
 endef
 
 define enable_dotfile
@@ -53,7 +53,7 @@ else
 		https://github.com/magicmonty/bash-git-prompt/archive/$(VERSION_BASH_GIT_PROMPT).tar.gz
 	tar zxvf $(tmp_tarball)
 	rsync -av $(tmp_src)/ $(bash_git_prompt_dir)
-	rm -rfv $(tmp_src) $(tmp_tarball)
+	/bin/rm -rfv $(tmp_src) $(tmp_tarball)
 endif
 
 enable-bash-profile:
@@ -79,7 +79,7 @@ bash: install-bash-git-prompt enable-bash-profile
 
 clean-bash: disable-bash-profile
 	bash --login
-	rm -rfv $(bash_git_prompt_dir)
+	/bin/rm -rfv $(bash_git_prompt_dir)
 
 ###############################################################################
 # vim
@@ -106,7 +106,7 @@ disable-vimrc:
 	$(call disable_dotfile,$(dst_vimrc))
 
 uninstall-vim-plug:
-	rm -rfv $(vim_plug) $(vim_plug_dir)
+	/bin/rm -rfv $(vim_plug) $(vim_plug_dir)
 
 vim: install-vim-plug enable-vimrc
 
@@ -126,7 +126,34 @@ dst_customized_tmux_config = $(HOME)/$(customized_tmux_config)
 
 tmux_dir = $(HOME)/.tmux
 
-install-tmux:
+libevent_version = 2.1.8-stable
+libevent_src = libevent-$(libevent_version)
+libevent_tarball = $(libevent_src).tar.gz
+libevent_src_url = https://github.com/libevent/libevent/releases/download/release-$(libevent_version)/$(libevent_tarball)
+
+libevent:
+	curl -OL $(libevent_src_url)
+	tar zxvf $(libevent_tarball)
+	cd $(libevent_src) && ./configure && make && sudo make install
+	/bin/rm -rf $(libevent_src) $(libevent_tarball)
+
+uninstall-libevent:
+	curl -OL $(libevent_src_url)
+	tar zxvf $(libevent_src).tar.gz
+	cd $(libevent_src) && ./configure && sudo make uninstall
+	/bin/rm -rfv $(libevent_src) $(libevent_tarball)
+
+powerlinefont:
+	git clone git@github.com:powerline/fonts.git
+	cd fonts && ./install.sh
+	/bin/rm -rfv fonts
+
+uninstall-powerlinefont:
+	git clone git@github.com:powerline/fonts.git
+	cd fonts && ./uninstall.sh
+	/bin/rm -rfv fonts
+
+install-tmux: libevent powerlinefont
 ifeq ($(os),Linux)
 	sudo apt-get install -y libevent-dev libncurses5-dev
 endif
@@ -137,7 +164,7 @@ endif
 	tar zxvf $(tmp_tarball)
 	rsync -av $(tmp_src)/ $(tmux_dir)
 	cd $(tmux_dir) && ./configure && make && sudo make install
-	rm -rfv $(tmp_src) $(tmp_tarball)
+	/bin/rm -rfv $(tmp_src) $(tmp_tarball)
 
 enable-tmux:
 	$(call enable_dotfile,\
@@ -151,11 +178,11 @@ disable-tmux:
 
 uninstall-tmux:
 	cd $(tmux_dir) && sudo make uninstall
-	rm -rfv $(tmux_dir)
+	/bin/rm -rfv $(tmux_dir)
 
 tmux: install-tmux enable-tmux
 
-clean-tmux: uninstall-tmux disable-tmux
+clean-tmux: uninstall-tmux disable-tmux uninstall-libevent uninstall-powerlinefont
 
 ###############################################################################
 # git
