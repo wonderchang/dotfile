@@ -48,6 +48,13 @@ nnoremap <silent> -     :wincmd -<CR>
 nnoremap <silent> <     :wincmd <<CR>
 nnoremap <silent> >     :wincmd ><CR>
 
+" Line wrapping
+set linebreak
+set breakindent
+set breakindentopt=shift:2
+nmap k gk
+nmap j gj
+
 syntax on
 filetype plugin indent on
 
