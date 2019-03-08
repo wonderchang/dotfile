@@ -10,6 +10,8 @@
     --pretty=format:'%C(yellow)%h%Creset %ad %C(bold green)%an%Creset %s%C(yellow)%d%Creset'
 [color]
   ui = true
+[diff]
+  tool = vimdiff
 [difftool]
   prompt = false
 [core]
