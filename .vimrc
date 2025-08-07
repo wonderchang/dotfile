@@ -2,9 +2,10 @@
 set modelines=5
 set expandtab
 set smarttab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set backspace=2
+set colorcolumn=80
 set autoindent
 set nowrap
 set list listchars=tab:▸·,trail:⎵
@@ -36,6 +37,7 @@ endif
 set nohlsearch
 set foldmethod=marker
 set foldlevel=1
+set grepprg=rg\ --vimgrep
 
 " Customized shortcut: Window
 nnoremap <silent> <Tab> :wincmd w<CR>
@@ -73,12 +75,10 @@ Plug 'tpope/vim-sensible'
 Plug 'https://github.com/elzr/vim-json.git'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'gkz/vim-ls'
-Plug 'digitaltoad/vim-pug'
-Plug 'wavded/vim-stylus'
-Plug 'isRuslan/vim-es6'
-Plug 'mxw/vim-jsx'
 Plug 'nikvdp/ejs-syntax'
+Plug 'hashivim/vim-terraform'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'jparise/vim-graphql'        " GraphQL syntax
 call plug#end()
-
-" vi:sw=2:ts=2
