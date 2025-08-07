@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 VERSION_TMUX = 2.2
-VERSION_VIM_PLUG = 0.10.0
+VERSION_VIM_PLUG = 0.14.0
 VERSION_BASH_GIT_PROMPT = 2.7.1
 
 build: vim tmux git bash
@@ -85,32 +85,32 @@ clean-bash: disable-bash-profile
 # vim
 ###############################################################################
 
-src_vimrc = $(PWD)/.vimrc
-dst_vimrc = $(HOME)/.vimrc
+_src_vimrc = $(PWD)/.vimrc
+_dst_vimrc = $(HOME)/.vimrc
 
-vimdir = $(HOME)/.vim
+_vimdir = $(HOME)/.vim
 
-vim_plug = $(vimdir)/autoload/plug.vim
-vim_plug_dir = $(vimdir)/plugged
+_vim_plug = $(_vimdir)/autoload/plug.vim
+_vim_plug_dir = $(_vimdir)/plugged
 
-install-vim-plug:
-	curl -fLo $(vim_plug) \
+_install-vim-plug:
+	curl -fLo $(_vim_plug) \
 		--create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/$(VERSION_VIM_PLUG)/plug.vim
 
-enable-vimrc:
-	$(call enable_dotfile,$(src_vimrc),$(dst_vimrc))
+_enable-vimrc:
+	$(call enable_dotfile,$(_src_vimrc),$(_dst_vimrc))
 	vim -c 'PlugInstall' -c 'qa!'
 
-disable-vimrc:
-	$(call disable_dotfile,$(dst_vimrc))
+_disable-vimrc:
+	$(call disable_dotfile,$(_dst_vimrc))
 
-uninstall-vim-plug:
-	/bin/rm -rfv $(vim_plug) $(vim_plug_dir)
+_uninstall-vim-plug:
+	/bin/rm -rfv $(_vim_plug) $(_vim_plug_dir)
 
-vim: install-vim-plug enable-vimrc
+vim: _install-vim-plug _enable-vimrc
 
-clean-vim: uninstall-vim-plug disable-vimrc
+clean-vim: _uninstall-vim-plug _disable-vimrc
 
 ###############################################################################
 # tmux
@@ -188,14 +188,14 @@ clean-tmux: uninstall-tmux disable-tmux uninstall-libevent uninstall-powerlinefo
 # git
 ###############################################################################
 
-src_gitconfig = $(PWD)/.gitconfig
-dst_gitconfig = $(HOME)/.gitconfig
+_src_gitconfig = $(PWD)/.gitconfig
+_dst_gitconfig = $(HOME)/.gitconfig
 
 git:
-	$(call enable_dotfile,$(src_gitconfig),$(dst_gitconfig))
+	$(call enable_dotfile,$(_src_gitconfig),$(_dst_gitconfig))
 
 clean-git:
-	$(call disable_dotfile,$(dst_gitconfig))
+	$(call disable_dotfile,$(_dst_gitconfig))
 
 
 # vi:ts=4:sw=4

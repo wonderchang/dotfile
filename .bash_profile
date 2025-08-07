@@ -1,3 +1,6 @@
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
@@ -47,5 +50,17 @@ if [ -d "$HOME/bin" ] ; then
   fi
 fi
 
+# Created by `pipx` on 2025-05-01 21:17:47
+export PATH="$PATH:/Users/wonderchang/.local/bin"
 
-# vi:et:ts=2:sw=2:cc=80
+# pyenv config on 2025-05-01 21:20:31
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# nvm config on 2025-05-16 16:21:00
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+complete -C /opt/homebrew/bin/terraform terraform
