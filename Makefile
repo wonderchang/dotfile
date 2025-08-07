@@ -198,4 +198,4 @@ clean-git:
 	$(call disable_dotfile,$(dst_gitconfig))
 
 
-# vi:ts=4:sw=4:cc=80
+# vi:ts=4:sw=4
